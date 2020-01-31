@@ -12,6 +12,7 @@ namespace WebDevStudios\OopsWPDemo\Content;
 use WebDevStudios\OopsWP\Structure\Content\ContentTypeInterface;
 use WebDevStudios\OopsWP\Structure\Service;
 use WebDevStudios\OopsWPDemo\Content\PostType;
+use WebDevStudios\OopsWPDemo\Content\Taxonomy;
 
 /**
  * Class ContentRegistrar
@@ -29,6 +30,7 @@ class ContentRegistrar extends Service {
 	 */
 	private $content_types = [
 		PostType\Game::class,
+		Taxonomy\GameType::class,
 	];
 
 	/**
