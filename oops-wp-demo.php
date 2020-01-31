@@ -15,7 +15,7 @@ if ( is_readable( $autoload ) ) {
 	require_once $autoload;
 }
 
-add_action( 'plugins_loaded', function () {
+add_action( 'plugins_loaded', function() {
 	try {
 		( new OopsWPDemo() )->run();
 	} catch ( Error $e ) {
@@ -26,6 +26,6 @@ add_action( 'plugins_loaded', function () {
 			);
 
 			echo wp_kses_post( '<div class="notice notice-error"><p>' . $message . '</p></div>' );
-		});
+		} );
 	}
-});
+} );
