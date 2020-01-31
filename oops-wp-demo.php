@@ -4,7 +4,7 @@
  * Description: An example plugin to demonstrate usage of OOPS-WP structures and utilities.
  * Author: WebDevStudios
  * Author URI: https://webdevstudios.com
- * Version: 0.2.1
+ * Version: 0.3.0
  */
 
 use WebDevStudios\OopsWPDemo\OopsWPDemo;
