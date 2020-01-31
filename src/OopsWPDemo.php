@@ -10,6 +10,7 @@
 namespace WebDevStudios\OopsWPDemo;
 
 use WebDevStudios\OopsWP\Structure\Plugin\Plugin;
+use WebDevStudios\OopsWPDemo\Content\ContentRegistrar;
 
 /**
  * Class OopsWPDemo
@@ -19,5 +20,13 @@ use WebDevStudios\OopsWP\Structure\Plugin\Plugin;
  * @package WebDevStudios\OopsWPDemo
  */
 class OopsWPDemo extends Plugin {
-
+	/**
+	 * Services that this plugin registers.
+	 *
+	 * @var array
+	 * @since 0.1.0
+	 */
+	protected $services = [
+		ContentRegistrar::class,
+	];
 }
