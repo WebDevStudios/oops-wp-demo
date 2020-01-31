@@ -1,0 +1,21 @@
+{
+    "name": "webdevstudios/oops-wp-demo",
+    "description": "An example plugin to demonstrate usage of OOPS-WP structures and utilities.",
+    "license":  "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Jeremy Ward",
+            "email": "jeremy.ward@webdevstudios.com",
+            "role": "developer"
+        }
+    ],
+    "type": "wordpress-plugin",
+    "autoload": {
+        "psr-4": {
+            "WebDevStudios\\OopsWPDemo\\": "src/"
+        }
+    },
+    "require": {
+        "webdevstudios/oops-wp": "^0.2.1"
+    }
+}
