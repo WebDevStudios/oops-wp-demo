@@ -17,7 +17,7 @@ if ( is_readable( $autoload ) ) {
 
 add_action( 'plugins_loaded', function() {
 	try {
-		( new OopsWPDemo() )->run();
+		( new OopsWPDemo( __FILE__ ) )->run();
 	} catch ( Error $e ) {
 		add_action( 'admin_notices', function() {
 			$message = __(

@@ -10,9 +10,12 @@
 namespace WebDevStudios\OopsWPDemo\Content;
 
 use WebDevStudios\OopsWP\Structure\Content\ContentTypeInterface;
+use WebDevStudios\OopsWP\Structure\Content\ShortcodeInterface;
 use WebDevStudios\OopsWP\Structure\Service;
+use WebDevStudios\OopsWP\Utility\FilePathDependent;
 use WebDevStudios\OopsWPDemo\Content\PostType;
 use WebDevStudios\OopsWPDemo\Content\Taxonomy;
+use WebDevStudios\OopsWPDemo\Content\Shortcode;
 
 /**
  * Class ContentRegistrar
@@ -22,6 +25,8 @@ use WebDevStudios\OopsWPDemo\Content\Taxonomy;
  * @package WebDevStudios\OopsWPDemo\Content
  */
 class ContentRegistrar extends Service {
+	use FilePathDependent;
+
 	/**
 	 * ContentType entities to register.
 	 *
@@ -34,6 +39,16 @@ class ContentRegistrar extends Service {
 	];
 
 	/**
+	 * Shortcode entities to register.
+	 *
+	 * @var array
+	 * @since 2020-01-30
+	 */
+	private $shortcodes = [
+		Shortcode\NewestGame::class,
+	];
+
+	/**
 	 * Register content objects with WordPress.
 	 *
 	 * @author Jeremy Ward <jeremy.ward@webdevstudios.com>
@@ -41,6 +56,7 @@ class ContentRegistrar extends Service {
 	 */
 	public function register_hooks() {
 		add_action( 'init', [ $this, 'register_content' ] );
+		add_action( 'init', [ $this, 'register_shortcodes' ] );
 	}
 
 	/**
@@ -56,6 +72,18 @@ class ContentRegistrar extends Service {
 	}
 
 	/**
+	 * Register shortcodes with WordPress.
+	 *
+	 * @author Jeremy Ward <jeremy.ward@webdevstudios.com>
+	 * @since  2020-01-31
+	 */
+	public function register_shortcodes() {
+		foreach ( $this->shortcodes as $shortcode_class ) {
+			$this->register_shortcode( new $shortcode_class() );
+		}
+	}
+
+	/**
 	 * Register a content type with WordPress.
 	 *
 	 * @param ContentTypeInterface $content_type Class instance.
@@ -65,5 +93,22 @@ class ContentRegistrar extends Service {
 	 */
 	private function register_content_type( ContentTypeInterface $content_type ) {
 		$content_type->register();
+	}
+
+	/**
+	 * Register a shortcode.
+	 *
+	 * @param ShortcodeInterface $shortcode Object instance.
+	 *
+	 * @author Jeremy Ward <jeremy.ward@webdevstudios.com>
+	 * @since  2020-01-31
+	 */
+	private function register_shortcode( ShortcodeInterface $shortcode ) {
+		if ( in_array( FilePathDependent::class, class_uses( $shortcode ), true ) ) {
+			/* @var $shortcode \WebDevStudios\OopsWP\Utility\FilePathDependent Class instance. */
+			$shortcode->set_file_path( plugin_dir_path( $this->file_path ) );
+		}
+
+		$shortcode->register();
 	}
 }

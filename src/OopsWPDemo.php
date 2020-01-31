@@ -21,6 +21,18 @@ use WebDevStudios\OopsWPDemo\Content\ContentRegistrar;
  */
 class OopsWPDemo extends Plugin {
 	/**
+	 * OopsWPDemo constructor.
+	 *
+	 * @param string $file_path The plugin file path.
+	 *
+	 * @author Jeremy Ward <jeremy.ward@webdevstudios.com>
+	 * @since  2020-01-31
+	 */
+	public function __construct( $file_path ) {
+		$this->file_path = $file_path;
+	}
+
+	/**
 	 * Services that this plugin registers.
 	 *
 	 * @var array
