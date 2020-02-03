@@ -16,6 +16,7 @@
  * to a PostType registration within that PostType class itself, while the Service is what calls its `register` method.
  *
  * @see \WebDevStudios\OopsWP\Structure\Plugin\Plugin
+ * @see \WebDevStudios\OopsWP\Structure\Plugin\PluginInterface
  * @see \WebDevStudios\OopsWP\Structure\Plugin\Plugin::register_services()
  * @see \WebDevStudios\OopsWP\Structure\ServiceRegistrar
  * @see \WebDevStudios\OopsWP\Structure\Service
