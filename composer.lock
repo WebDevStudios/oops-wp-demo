@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "215e031c1c6ec0231e40f8845d867819",
+    "content-hash": "d5a3a4ddd99b4c2005cd2912b579de66",
     "packages": [
         {
             "name": "webdevstudios/oops-wp",
