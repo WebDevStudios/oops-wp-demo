@@ -30,6 +30,7 @@
 namespace WebDevStudios\OopsWPDemo;
 
 use WebDevStudios\OopsWP\Structure\Plugin\Plugin;
+use WebDevStudios\OopsWPDemo\Api\RouteRegistrar;
 use WebDevStudios\OopsWPDemo\BlockEditor\BlockRegistrar;
 use WebDevStudios\OopsWPDemo\Content\ContentRegistrar;
 use WebDevStudios\OopsWPDemo\Navigation\NavigationRegistrar;
@@ -63,6 +64,7 @@ class OopsWPDemo extends Plugin {
 	protected $services = [
 		ContentRegistrar::class,
 		NavigationRegistrar::class,
+		RouteRegistrar::class,
 		BlockRegistrar::class,
 	];
 
