@@ -11,6 +11,7 @@ namespace WebDevStudios\OopsWPDemo;
 
 use WebDevStudios\OopsWP\Structure\Plugin\Plugin;
 use WebDevStudios\OopsWPDemo\Content\ContentRegistrar;
+use WebDevStudios\OopsWPDemo\Navigation\NavigationRegistrar;
 
 /**
  * Class OopsWPDemo
@@ -40,5 +41,6 @@ class OopsWPDemo extends Plugin {
 	 */
 	protected $services = [
 		ContentRegistrar::class,
+		NavigationRegistrar::class,
 	];
 }
