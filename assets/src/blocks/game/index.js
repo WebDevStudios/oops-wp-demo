@@ -1,5 +1,8 @@
 /* global wp */
 
+import edit from './edit';
+import save from './save';
+
 const { registerBlockType } = wp.blocks;
 
 registerBlockType(
@@ -9,7 +12,7 @@ registerBlockType(
 		category: "layout",
 		icon: "wordpress",
 		keywords: [ "board game" ],
-		edit: () => '<h1>Hello</h1>',
-		save: () => '<h1>Hello</h1>',
+		edit,
+		save,
 	}
 );
