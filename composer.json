@@ -16,6 +16,9 @@
         }
     },
     "require": {
-        "webdevstudios/oops-wp": "^0.3.0"
+        "webdevstudios/oops-wp": "^0.3.0",
+        "ext-libxml": "^7.2",
+        "ext-json": "^1.6",
+        "php": "^7.2"
     }
 }

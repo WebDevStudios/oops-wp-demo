@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d5a3a4ddd99b4c2005cd2912b579de66",
+    "content-hash": "d6c3d09cfdd0c78867ab1721a9b1c4dc",
     "packages": [
         {
             "name": "webdevstudios/oops-wp",
@@ -50,6 +50,10 @@
     "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "ext-libxml": "^7.2",
+        "ext-json": "^1.6",
+        "php": "^7.2"
+    },
     "platform-dev": []
 }
