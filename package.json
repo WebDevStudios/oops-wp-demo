@@ -19,6 +19,7 @@
   "homepage": "https://github.com/WebDevStudios/oops-wp-demo#readme",
   "dependencies": {},
   "devDependencies": {
-    "@wordpress/scripts": "^6.2.0"
+    "@wordpress/scripts": "^6.2.0",
+    "axios": "^0.19.2"
   }
 }
