@@ -12,6 +12,18 @@ registerBlockType(
 		category: "layout",
 		icon: "wordpress",
 		keywords: [ "board game" ],
+		attributes: {
+			id: {
+				type: 'string',
+				selector: 'p'
+			},
+			title: {
+				type: 'string',
+			},
+			description: {
+				type: 'string',
+			}
+		},
 		edit,
 		save,
 	}

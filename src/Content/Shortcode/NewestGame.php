@@ -96,7 +96,7 @@ class NewestGame extends Shortcode {
 	 * @since  2020-02-03
 	 */
 	private function setup_game_data( $game_id ) {
-		$data = get_transient( "wds_oops_wp_newest_game_${game_id}" );
+		$data = get_transient( NewestGameData::CACHE_ID_PREFIX . $game_id );
 
 		if ( ! $data ) {
 			$data = $this->request_game_data( $game_id );
@@ -151,7 +151,7 @@ class NewestGame extends Shortcode {
 				$data = $this->convert_xml_to_json( wp_remote_retrieve_body( $request ) );
 
 				set_transient(
-					"wds_oops_wp_newest_game_${game_id}",
+					NewestGameData::CACHE_ID_PREFIX . $game_id,
 					$data,
 					1 * DAY_IN_SECONDS
 				);

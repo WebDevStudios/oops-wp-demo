@@ -65,6 +65,7 @@ class Game extends EditorBlock {
 			[
 				'wp-editor',
 				'wp-blocks',
+				'wp-components',
 			],
 			filemtime( plugin_dir_path( $this->file_path ) . 'assets/dist/blocks/game/index.js' ),
 			true

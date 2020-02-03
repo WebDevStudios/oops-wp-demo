@@ -18,6 +18,13 @@ namespace WebDevStudios\OopsWPDemo\Content\Shortcode;
  */
 class NewestGameData {
 	/**
+	 * Prefix for caching game data.
+	 *
+	 * @since 2020-02-03
+	 */
+	const CACHE_ID_PREFIX = 'wds_oops_wp_game_';
+
+	/**
 	 * The name of the newest game.
 	 *
 	 * @var string
