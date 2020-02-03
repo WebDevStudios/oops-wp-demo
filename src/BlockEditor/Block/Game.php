@@ -6,6 +6,13 @@
  *       This block will require a refactor when the new release is ready, as its goal is to simplify the block
  *       registration process.
  *
+ * It should seem fairly obvious by examining this example block that there's significant refactoring work to be done
+ *       in the next release. If one of the main goals for the OOPS-WP library is to streamline some of the scaffolding
+ *       process for common WordPress structures, then there's too much to remember in terms of telling WordPress
+ *       where a block's assets are located and how/when they should be hooked up.
+ *
+ *       Stay tuned for a rewrite of this example to correspond with the next release.
+ *
  * @author  Jeremy Ward <jeremy.ward@webdevstudios.com>
  * @since   2020-02-03
  * @package WebDevStudios\OopsWPDemo\BlockEditor\Block
@@ -27,11 +34,16 @@ class Game extends EditorBlock {
 	use FilePathDependent;
 
 	/**
+	 * The name of the block.
+	 *
 	 * @var string
+	 * @since 2020-02-03
 	 */
 	private $block_name = 'oops-wp-demo/game';
 
 	/**
+	 * Helper method to convert the block name to an asset prefix.
+	 *
 	 * @author Jeremy Ward <jeremy.ward@webdevstudios.com>
 	 * @since  2020-02-03
 	 * @return string
@@ -49,7 +61,7 @@ class Game extends EditorBlock {
 	public function register_script() {
 		wp_enqueue_script(
 			"{$this->get_block_asset_prefix()}script",
-			plugin_dir_url($this->file_path) . 'assets/dist/blocks/game/index.js',
+			plugin_dir_url( $this->file_path ) . 'assets/dist/blocks/game/index.js',
 			[
 				'wp-editor',
 				'wp-blocks',
