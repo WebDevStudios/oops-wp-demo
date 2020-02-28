@@ -49,6 +49,16 @@ class ContentRegistrar extends Service {
 	];
 
 	/**
+	 * API Endpoints to register.
+	 *
+	 * @var array
+	 * @since 2020-01-30
+	 */
+	private $endpoints = [
+		Endpoint\Test::class,
+	];
+
+	/**
 	 * Register content objects with WordPress.
 	 *
 	 * @author Jeremy Ward <jeremy.ward@webdevstudios.com>
@@ -57,6 +67,7 @@ class ContentRegistrar extends Service {
 	public function register_hooks() {
 		add_action( 'init', [ $this, 'register_content' ] );
 		add_action( 'init', [ $this, 'register_shortcodes' ] );
+		add_action( 'rest_api_init', [ $this, 'register_endpoints' ] );
 	}
 
 	/**
@@ -80,6 +91,18 @@ class ContentRegistrar extends Service {
 	public function register_shortcodes() {
 		foreach ( $this->shortcodes as $shortcode_class ) {
 			$this->register_shortcode( new $shortcode_class() );
+		}
+	}
+
+	/**
+	 * Initialize and register API Endpoints.
+	 *
+	 * @author Jeremy Ward <jeremy.ward@webdevstudios.com>
+	 * @since  2020-01-31
+	 */
+	public function register_endpoints() {
+		foreach ( $this->endpoints as $endpoint_class ) {
+			$this->register_content_type( new $endpoint_class() );
 		}
 	}
 
